@@ -44,7 +44,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oakoliver/bubblezone"
+    "url": "git+https://github.com/oakoliver/bubblezone.git"
   },
   "homepage": "https://github.com/oakoliver/bubblezone#readme",
   "bugs": {
