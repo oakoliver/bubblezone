@@ -1,0 +1,70 @@
+{
+  "name": "@oakoliver/bubblezone",
+  "version": "1.0.0",
+  "description": "Mouse hit-zones for Bubble Tea in TypeScript: mark a region of your view, scan once, ask whether a click landed inside it. Port of lrstanley/bubblezone",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build:esm": "esbuild src/index.ts --bundle --format=esm --platform=node --outfile=dist/index.js --target=esnext --external:@oakoliver/bubbletea",
+    "build:cjs": "esbuild src/index.ts --bundle --format=cjs --platform=node --outfile=dist/index.cjs --target=esnext --external:@oakoliver/bubbletea",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:types",
+    "typecheck": "tsc --noEmit",
+    "typecheck:examples": "tsc -p examples/tsconfig.json",
+    "test": "bun test",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "tui",
+    "terminal",
+    "mouse",
+    "hit-testing",
+    "click",
+    "zones",
+    "bubbletea",
+    "bubblezone",
+    "charmbracelet",
+    "typescript"
+  ],
+  "author": "Antonio Oliveira <antonio@oakoliver.com> (https://oakoliver.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oakoliver/bubblezone"
+  },
+  "homepage": "https://github.com/oakoliver/bubblezone#readme",
+  "bugs": {
+    "url": "https://github.com/oakoliver/bubblezone/issues"
+  },
+  "peerDependencies": {
+    "@oakoliver/bubbletea": "^1.2.1",
+    "@oakoliver/lipgloss": "^1.1.3"
+  },
+  "peerDependenciesMeta": {
+    "@oakoliver/lipgloss": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@oakoliver/bubbles": "^1.2.2",
+    "@oakoliver/bubbletea": "^1.2.1",
+    "@oakoliver/lipgloss": "^1.1.3",
+    "@types/node": "^20",
+    "esbuild": "^0.28.2",
+    "typescript": "^5"
+  }
+}
